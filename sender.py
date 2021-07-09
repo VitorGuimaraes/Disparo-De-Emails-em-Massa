@@ -10,7 +10,7 @@ read_email = open('password.txt')
 sender_email = read_email.readline().strip()
 
 # Read email's password from text file 
-read_password = open('password.txt')
+read_password = open('your_password.txt')
 password = read_password.readline().strip()
 
 # Read file with names and emails  
@@ -20,7 +20,7 @@ receivers = read_file.readlines()
 # Create a secure SSL context
 context = ssl.create_default_context()
 with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
-    server.login("vitorguimaraes.ce@gmail.com", password)
+    server.login(sender_email, password)
 
     for receiver in receivers:
 
@@ -33,7 +33,7 @@ with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
         msg['To'] = email
         msg['Subject'] = "Email automático"
 
-        body = '''Olá {}! Este email foi enviado automaticamente para você e outras pessoas. 
+        body = '''Olá {}! Este email foi enviado automaticamente. 
                 Legal né? Dá pra fazer coisas incríveis com Python! 
                 Dá uma olhada no meu GitHub e me segue no LinkedIn :D
                 https://github.com/VitorGuimaraes
