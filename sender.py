@@ -6,7 +6,7 @@ port = 465  # For SSL
 smtp_server = "smtp.gmail.com"
 
 # Read email from text file 
-read_email = open('password.txt')
+read_email = open('your_email.txt')
 sender_email = read_email.readline().strip()
 
 # Read email's password from text file 
